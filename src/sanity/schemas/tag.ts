@@ -12,9 +12,10 @@ const category = {
     {
       name: "slug",
       title: "Slug",
-      type: "string",
+      type: "slug",
       options: {
         source: "name",
+        unique: true,
         slugify: (input: any) => {
           return input
             .toLowerCase()
@@ -22,18 +23,16 @@ const category = {
             .replace(/[^\w-]+/g, "");
         },
       },
-      validation: (Rule: any) => {
-        Rule.required();
-        Rule.custom((fields: any) => {
+      validation: (Rule: any) =>
+        Rule.required().custom((fields: any) => {
           if (
-            fields !== fields?.toLowerCase() ||
-            fields.split(" ").includes("")
+            fields?.current !== fields?.current?.toLowerCase() ||
+            fields?.current.split(" ").includes("")
           ) {
             return "Slug must be lowercase and not be included space";
           }
           return true;
-        });
-      },
+        }),
     },
     {
       name: "ogImage",

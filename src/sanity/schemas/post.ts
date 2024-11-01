@@ -74,7 +74,7 @@ const post = {
       options: {
         hotspot: true,
       },
-      // validation: (Rule: any) => Rule.required(),
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: "publishedAt",
