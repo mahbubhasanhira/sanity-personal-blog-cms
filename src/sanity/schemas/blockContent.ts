@@ -59,11 +59,9 @@ const blockContent = {
                 title: "Open in new tab",
                 name: "blank",
                 type: "boolean",
+                initialValue: true,
               },
             ],
-            initialValue: {
-              blank: true,
-            },
           },
         ],
       },
